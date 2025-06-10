@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalle del Juego</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0f7fa;
+      padding: 30px;
+    }
+    img {
+      max-width: 400px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: #006064;
+    }
+    p {
+      font-size: 16px;
+      color: #004d40;
+    }
+    .btn {
+      padding: 10px 20px;
+      background-color: #00acc1;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #00838f;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="tituloJuego">minecraft</h1>
+  <img id="imagenJuego" src="minecra.WEBP" alt="Juego">
+  <p id="descripcionJuego">
+    un juego donde expandes tu cratividad y te diviertes construyendo todo lo que tu mente pueda crear. 
+    también un modo supervivencia donde tienes que sobrevivir día y noche hasta completar y terminar con la vida del ender dragon.
+  </p>
+
+  <button class="btn" onclick="comprar()">Comprar</button>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const nombre = params.get("nombre") || "minecraft";
+    const img = params.get("img") || "minecra.WEBP";
+    const desc = params.get("desc") || "un juego donde expandes tu cratividad y te diviertes construyendo todo lo que tu mente pueda crear...";
+
+    document.getElementById("tituloJuego").textContent = nombre;
+    document.getElementById("imagenJuego").src = img;
+    document.getElementById("descripcionJuego").textContent = desc;
+
+    function comprar() {
+      // Redirige a otra página con los datos del juego como parámetros en la URL
+      const url = `forma de pago.HTML?nombre=${encodeURIComponent(nombre)}&img=${encodeURIComponent(img)}&desc=${encodeURIComponent(desc)}`;
+      window.location.href = url;
+    }
+  </script>
+
+</body>
+</html>

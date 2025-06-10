@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Recibo de Compra - AquaPlay</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .ticket {
+      background-color: #fff;
+      padding: 30px;
+      margin-top: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+    }
+    h1 {
+      color: #0077cc;
+      margin-bottom: 20px;
+    }
+    .details {
+      text-align: left;
+      margin-top: 20px;
+    }
+    .details p {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+    .total {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .back-button {
+      margin-top: 30px;
+      padding: 12px 20px;
+      border: none;
+      background-color: #0077cc;
+      color: #fff;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .back-button:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="ticket">
+    <h1>AquaPlay</h1>
+    <h2>Recibo de Compra</h2>
+
+    <div class="details">
+      <p><strong>Fecha:</strong> <span id="fecha"></span></p>
+      <p><strong>Artículo:</strong> <span id="producto"></span></p>
+      <p><strong>Método de Pago:</strong> <span id="metodo"></span></p>
+      <p><strong>Precio:</strong> <span id="precio"></span></p>
+    </div>
+
+    <div class="total">
+      Total: <span id="precioTotal"></span>
+    </div>
+
+    <button class="back-button" onclick="location.href='forma de pago.html'">Regresar al Pago</button>
+  </div>
+
+  <script>
+    // Mostrar fecha actual
+    const fechaActual = new Date();
+    const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('fecha').textContent = fechaActual.toLocaleDateString('es-ES', opciones);
+
+    // Obtener parámetros de la URL
+    const params = new URLSearchParams(window.location.search);
+    const producto = params.get('producto');
+    const metodo = params.get('metodo');
+
+    // Definir precios por producto
+    const precios = {
+      'Halo 2': '$499.00 MXN',
+      'FIFA 24': '$999.00 MXN',
+      'God of War': '$799.00 MXN'
+    };
+
+    // Mostrar datos en el ticket
+    document.getElementById('producto').textContent = producto || 'No especificado';
+    document.getElementById('metodo').textContent = metodo || 'No especificado';
+    const precio = precios[producto] || 'N/A';
+    document.getElementById('precio').textContent = precio;
+    document.getElementById('precioTotal').textContent = precio;
+  </script>
+</body>
+</html>

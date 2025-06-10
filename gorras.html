@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Catálogo Gorras</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #4a001f, #800040);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #6a1b3a;
+      color: white;
+      text-align: center;
+      padding: 25px 0;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      padding: 30px 20px 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .producto {
+      background-color: #fff0f5;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      width: 230px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .producto:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .producto img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+
+    .producto h3 {
+      font-size: 20px;
+      color: #880e4f;
+      margin: 6px 0 8px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .producto p.descripcion {
+      font-size: 14px;
+      color: #555;
+      text-align: center;
+      flex-grow: 1;
+      margin-bottom: 10px;
+    }
+
+    .producto .precio {
+      font-weight: 700;
+      color: #ad1457;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .producto button {
+      background-color: #6a1b3a;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background-color 0.25s ease;
+      width: 100%;
+    }
+
+    .producto button:hover {
+      background-color: #4a0033;
+    }
+
+    .volver {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .volver a {
+      background-color: #6a1b3a;
+      color: white;
+      padding: 12px 26px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 17px;
+      transition: background-color 0.3s ease;
+    }
+
+    .volver a:hover {
+      background-color: #4a0033;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Catálogo - Gorras</header>
+
+  <div class="productos">
+    <div class="producto">
+      <img src="g1.jpeg" alt="Gorra Clásica" />
+      <h3>Gorra Clásica</h3>
+      <p class="descripcion">Gorra de algodón estilo casual en guindo.</p>
+      <p class="precio">$1220</p>
+      <button onclick="agregarAlCarrito('Gorra Clásica', 1220)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="g2.jpeg" alt="Gorra LA" />
+      <h3>Gorra LA</h3>
+      <p class="descripcion">Para uso diario, ligera y cómoda.</p>
+      <p class="precio">$1260</p>
+      <button onclick="agregarAlCarrito('Gorra Deportiva', 1260)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="g3.jpeg" alt="Gorra ED" />
+      <h3>Gorra ED</h3>
+      <p class="descripcion">Gorra negra con bordado azul</p>
+      <p class="precio">$1240</p>
+      <button onclick="agregarAlCarrito('Gorra con Malla', 1240)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="g4.jpeg" alt="Gorra Bordada" />
+      <h3>Gorra Bordada</h3>
+      <p class="descripcion">Gorra color beige. Con diseño exclusivo bordado en el frente color rosa.</p>
+      <p class="precio">$1280</p>
+      <button onclick="agregarAlCarrito('Gorra Bordada', 1280)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="g5.jpeg" alt="Gorra Clasica" />
+      <h3>Gorra Clasica</h3>
+      <p class="descripcion">Con diseño exclusivo bordado en el frente color rosa.</p>
+      <p class="precio">$1300</p>
+      <button onclick="agregarAlCarrito('Snapback', 1300)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="g6.jpeg" alt="Gorra A" />
+      <h3>Gorra A</h3>
+      <p class="descripcion">Con diseño exclusivo bordado en el frente color blanco.</p>
+      <p class="precio">$1270</p>
+      <button onclick="agregarAlCarrito('Gorra Vintage', 1270)">Agregar al carrito</button>
+    </div>
+
+    <!-- Puedes repetir productos aquí si quieres -->
+
+  </div>
+
+  <div class="volver">
+    <a href="div.html">← Volver al inicio</a>
+    <a href="carrito.html">Ver carrito 🛒</a>
+  </div>
+
+  <script>
+    function agregarAlCarrito(nombre, precio) {
+      const producto = { nombre, precio };
+      let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+      carrito.push(producto);
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      alert(`${nombre} ha sido agregado al carrito.`);
+    }
+  </script>
+
+</body>
+</html>

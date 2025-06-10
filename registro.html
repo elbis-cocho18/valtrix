@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffe4ec, #fbcfe8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .register-container {
+      background-color: #fff0f5;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+
+    .register-container h2 {
+      text-align: center;
+      color: #d63384;
+      margin-bottom: 20px;
+    }
+
+    .register-container input[type="text"],
+    .register-container input[type="email"],
+    .register-container input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #f8c3da;
+      border-radius: 8px;
+      background-color: #fff;
+    }
+
+    .register-container input:focus {
+      border-color: #d63384;
+      outline: none;
+    }
+
+    .boton-link {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      background-color: #f06292;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .boton-link:hover {
+      background-color: #e91e63;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .login-link a {
+      color: #c2185b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <center><img src="gel.jpg" height="100" width="100"></center>
+    <h2>Crear Cuenta</h2>
+
+    <input type="text" id="nombre" placeholder="Nombre completo" required>
+    <input type="email" id="correo" placeholder="Correo electrónico" required>
+    <input type="password" id="contraseña" placeholder="Contraseña" required>
+
+    <button class="boton-link" onclick="registrar()">Registrarse</button>
+
+    <div class="login-link">
+      ¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a>
+    </div>
+  </div>
+
+  <script>
+    function registrar() {
+      const nombre = document.getElementById('nombre').value;
+      const correo = document.getElementById('correo').value;
+      const contraseña = document.getElementById('contraseña').value;
+
+      if (nombre && correo && contraseña) {
+        alert("Registro exitoso. Ahora inicia sesión.");
+        window.location.href = "inse.html"; // Redirige a iniciar sesión
+      } else {
+        alert("Por favor completa todos los campos.");
+      }
+    }
+  </script>
+</body>
+</html>

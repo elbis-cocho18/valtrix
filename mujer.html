@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo Mujer</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #ffe4ec, #fbcfe8);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #f06292;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 24px;
+    }
+
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+
+    .producto {
+      background-color: #fff0f5;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 15px;
+      text-align: center;
+    }
+
+    .producto img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .producto h3 {
+      color: #d63384;
+      margin: 10px 0 5px;
+    }
+
+    .producto p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .producto .precio {
+      color: #c2185b;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .producto button {
+      margin-top: 10px;
+      background-color: #d63384;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .producto button:hover {
+      background-color: #b12c6d;
+    }
+
+    .volver {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .volver a {
+      background-color: #f06292;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .volver a:hover {
+      background-color: #e91e63;
+    }
+  </style>
+</head>
+<body>
+  <header>Catálogo - Mujer</header>
+
+  <div class="productos">
+    <div class="producto">
+      <img src="m4.jpeg" alt="Blusa rosa">
+      <h3>Falda Globo Negro</h3>
+      <p>fresca y ligera, ideal para verano.</p>
+      <p class="precio">$299</p>
+      <button onclick="agregarAlCarrito('Blusa Rosa', 299)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="m3.jpeg" alt="Vestido elegante">
+      <h3>Vestido Elegante</h3>
+      <p>Vestido rojo para ocasiones especiales.</p>
+      <p class="precio">$599</p>
+      <button onclick="agregarAlCarrito('Vestido Elegante', 599)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="m2.jpeg" alt="Jeans ajustados">
+      <h3>Blusa Blanca</h3>
+      <p>Estilo formal basica pero elegante</p>
+      <p class="precio">$320</p>
+      <button onclick="agregarAlCarrito('Jeans Ajustados', 320)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="m1.jpeg" alt="Blusa blanca">
+      <h3>Falda Lisa</h3>
+      <p>Estilo formal corta color caqui</p>
+      <p class="precio">$450</p>
+      <button onclick="agregarAlCarrito('Blusa Blanca', 450)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="m5.jpeg" alt="Falda plisada">
+      <h3>Falda Tableada</h3>
+      <p>Color blanco, tela vaporosa.</p>
+      <p class="precio">$370</p>
+      <button onclick="agregarAlCarrito('Falda Plisada', 370)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="m6.jpeg" alt="Top corto">
+      <h3>Vestido Corto</h3>
+      <p>Perfecto para combinar con botas y con lo que desees</p>
+      <p class="precio">$450</p>
+      <button onclick="agregarAlCarrito('Top Corto', 450)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="m7.jpeg" alt="Chaqueta ligera">
+      <h3>Chaqueta de Mezclilla</h3>
+      <p>Ideal para tiempos de frio con borreguita dentro.</p>
+      <p class="precio">$580</p>
+      <button onclick="agregarAlCarrito('Chaqueta Ligera', 580)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="m8.jpeg" alt="Vestido">
+      <h3>Vestido Floral</h3>
+      <p>Comoda y con estampas de flores amarillas.</p>
+      <p class="precio">$420</p>
+      <button onclick="agregarAlCarrito('Pantalón Casual', 420)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="m9.jpeg" alt="Blazer elegante">
+      <h3>Conjuto Formal</h3>
+      <p>Formal y femenino para oficina en blanco.</p>
+      <p class="precio">$670</p>
+      <button onclick="agregarAlCarrito('Blazer Rosa', 670)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="m10.jpeg" alt="Blusa estampada">
+      <h3Vestido Basico</h3>
+      <p>Color neutro amarillo.</p>
+      <p class="precio">$430</p>
+      <button onclick="agregarAlCarrito('Blusa Estampada', 430)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="m11.jpg" alt="Leggings deportivos">
+      <h3>Vestido Floral M</h3>
+      <p>Elasticidad, cómodo.</p>
+      <p class="precio">$490</p>
+      <button onclick="agregarAlCarrito('Leggings Deportivos', 490)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+      <img src="m12.jpg" alt="Camiseta básica">
+      <h3>Camiseta Básica</h3>
+      <p>Disponible en negro.</p>
+      <p class="precio">$280</p>
+      <button onclick="agregarAlCarrito('Camiseta Básica', 280)">Agregar al carrito</button>
+    </div>
+  </div>
+
+  <div class="volver">
+    <a href="div.html">← Volver al inicio</a> |
+    <a href="carrito.html">🛒 Ver carrito</a>
+  </div>
+
+  <script>
+    function agregarAlCarrito(nombre, precio) {
+      const producto = { nombre, precio };
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.push(producto);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      alert(`${nombre} se ha agregado al carrito.`);
+    }
+  </script>
+</body>
+</html>

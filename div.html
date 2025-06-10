@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo Principal</title>
+  <style>
+    body {
+      margin: 0;                                                                  
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #ffe4ec, #fbcfe8);
+    }
+
+    h1 {
+      text-align: center;
+      padding: 30px 0 10px;
+      color: #d63384;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      padding: 40px;
+    }
+
+    .cuadro {
+      background-color: #fff0f5;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      color: #d63384;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .cuadro:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .cuadro img {
+      width: 100%;
+      max-height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    /* Estilo del botón del carrito */
+    #ver-carrito {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #d63384;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 25px;
+      font-size: 16px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+
+    #ver-carrito:hover {
+      background-color: #b92c6a;
+    }
+  </style>
+</head>
+<body>
+  <h1>Explora nuestras categorías</h1>
+  <div class="grid">
+    <a href="mujer.html" class="cuadro">
+      <img src="m1.jpeg" alt="Mujer">
+      Mujer
+    </a>
+    <a href="hombre.html" class="cuadro">
+      <img src="c6.jpeg" alt="Hombre">
+      Hombre
+    </a>
+    <a href="accesorios.html" class="cuadro">
+      <img src="a6.jpeg" alt="Accesorios">
+      Accesorios
+    </a>
+    <a href="perfumes.html" class="cuadro">
+      <img src="p7.jpeg" alt="Perfumes">
+     Perfumes
+    </a>
+    <a href="bolsos.html" class="cuadro">
+      <img src="b4.jpeg" alt="Bolsos">
+      Bolsos
+    </a>
+    <a href="gorras.html" class="cuadro">
+      <img src="g2.jpeg" alt="Gorras">
+      Gorras
+    </a>
+      </div>
+
+  <!-- Botón de carrito -->
+  <a href="carrito.html" id="ver-carrito">🛒 Ver Carrito</a>
+</body>
+</html>

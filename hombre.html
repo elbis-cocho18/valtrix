@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo Hombre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+      color: #333;
+    }
+
+    header {
+      background-color: #0288d1;
+      color: white;
+      text-align: center;
+      padding: 24px 16px;
+      font-size: 32px;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .producto {
+      background-color: #e1f5fe;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .producto:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .producto img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .producto h3 {
+      color: #0277bd;
+      font-size: 20px;
+      margin: 12px 0 4px;
+    }
+
+    .producto p {
+      font-size: 14px;
+      color: #555;
+      margin: 4px 12px;
+    }
+
+    .precio {
+      color: #01579b;
+      font-weight: bold;
+      font-size: 16px;
+      margin: 10px 0 12px;
+    }
+
+    .producto button {
+      background-color: #0288d1;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .producto button:hover {
+      background-color: #0277bd;
+    }
+
+    .volver {
+      text-align: center;
+      margin: 30px 0 50px;
+    }
+
+    .volver a {
+      background-color: #0288d1;
+      color: white;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .volver a:hover {
+      background-color: #0277bd;
+    }
+  </style>
+</head>
+<body>
+  <header>Catálogo - Hombre</header>
+
+  <div class="productos">
+    <!-- Repite este bloque para cada producto -->
+    <div class="producto">
+      <img src="c1.jpeg" alt="Camisa casual">
+      <h3>Jersey Chicago</h3>
+      <p>Camisa gris oscura de algodón, manga corta.</p>
+      <p class="precio">$449</p>
+      <button onclick="agregarAlCarrito('Camisa Casual', 449)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="c2.jpeg" alt="Playera básica">
+      <h3>Camisa Basica</h3>
+      <p>Color gris claro, ideal para uso diario.</p>
+      <p class="precio">$399</p>
+      <button onclick="agregarAlCarrito('Playera Básica', 399)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="c3.jpeg" alt="Jeans clásicos">
+      <h3>Camisa Basica</h3>
+      <p>Diseño Palom Angels,Blanca de algodon.</p>
+      <p class="precio">$450</p>
+      <button onclick="agregarAlCarrito('Jeans Clásicos', 450)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="c4.jpeg" alt="Chamarra ligera">
+      <h3>Hoodie Roja</h3>
+      <p>Perfecta para entretiempo, color roja.</p>
+      <p class="precio">$720</p>
+      <button onclick="agregarAlCarrito('Chamarra Ligera', 720)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="c5.jpeg" alt="Bermuda cómoda">
+      <h3>Camisa GTT</h3>
+      <p>Color gris, fresca y versátil.</p>
+      <p class="precio">$280</p>
+      <button onclick="agregarAlCarrito('Bermuda Cómoda', 280)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="c6.jpeg" alt="Sudadera deportiva">
+      <h3>Camisa Tokyo</h3>
+      <p>Con estampado de Tokyo por detras,negro con rojo.</p>
+      <p class="precio">$590</p>
+      <button onclick="agregarAlCarrito('Sudadera Deportiva', 590)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="c7.jpeg" alt="Camisa polo">
+      <h3>Camisa Polo</h3>
+      <p>Diseño moderno, ideal para salidas.</p>
+      <p class="precio">$320</p>
+      <button onclick="agregarAlCarrito('Camisa Polo', 320)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="c8.jpeg" alt="Pantalón formal">
+      <h3>Camisa Amiri</h3>
+      <p>Perfecto para cualquier tipo de ocasion informal.</p>
+      <p class="precio">$550</p>
+      <button onclick="agregarAlCarrito('Pantalón Formal', 550)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="c9.jpeg" alt="Tenis casuales">
+      <h3>Camisa BR</h3>
+      <p>Comodidad y estilo para diario, color azulc y negro.</p>
+      <p class="precio">$470</p>
+      <button onclick="agregarAlCarrito('Tenis Casuales', 470)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="c10.jpeg" alt="Camiseta estampada">
+      <h3>Camiseta T Polo</h3>
+      <p>Diseño moderno con detalles cafes.</p>
+      <p class="precio">$630</p>
+      <button onclick="agregarAlCarrito('Camiseta Estampada', 630)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="c11.jpeg" alt="Chaleco acolchado">
+      <h3>Camisa AntiS</h3>
+      <p>Ideal para un dia comun, color negro con letras rosas.</p>
+      <p class="precio">$490</p>
+      <button onclick="agregarAlCarrito('Chaleco Acolchado', 490)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="c12.jpeg" alt="Gorro de lana">
+      <h3>Camisa Crown</h3>
+      <p>Estilo urbano, varios colores.</p>
+      <p class="precio">$150</p>
+      <button onclick="agregarAlCarrito('Gorro de Lana', 150)">Agregar al carrito</button>
+    </div>
+  </div>
+
+  <div class="volver">
+    <a href="div.html">← Volver al inicio</a> |
+    <a href="carrito.html">🛒 Ver carrito</a>
+  </div>
+
+  <script>
+    function agregarAlCarrito(nombre, precio) {
+      const producto = { nombre, precio };
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.push(producto);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      alert(`${nombre} se ha agregado al carrito.`);
+    }
+  </script>
+</body>
+</html>

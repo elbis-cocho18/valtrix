@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>AquaPlay - Nuevos Lanzamientos</title>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f1f5f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 48px;
+      color: #38bdf8;
+      text-shadow: 0 0 12px #0ea5e9;
+    }
+
+    .section {
+      margin-top: 50px;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #7dd3fc;
+      text-shadow: 0 0 10px #0ea5e9;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: #1e293b;
+      border: 1px solid #38bdf8;
+      border-radius: 12px;
+      width: 200px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 0 12px #000;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #38bdf8;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      margin: 10px 0;
+      color: #f1f5f9;
+    }
+
+    .card a {
+      color: #38fef8;
+      text-decoration: none;
+      pointer-events: none; /* Para que no interfiera con el click del card */
+    }
+
+    .card a:hover {
+      color: #0ea5e9;
+      text-shadow: 0 0 6px #7dd3fc;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: #1e293b;
+      border: 2px solid #38bdf8;
+      border-radius: 12px;
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      color: #f1f5f9;
+      box-shadow: 0 0 20px #38bdf8;
+      position: relative;
+    }
+    .modal-content img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .modal-content h3 {
+      margin: 0 0 10px;
+    }
+    .modal-content p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .modal-content button {
+      background-color: #38bdf8;
+      border: none;
+      padding: 10px 25px;
+      font-size: 16px;
+      color: #0f172a;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .modal-content button:hover {
+      background-color: #0ea5e9;
+      color: white;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 22px;
+      cursor: pointer;
+      color: #38bdf8;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>AquaPlay</h1>
+
+  <!-- Nuevos lanzamientos -->
+  <div class="section">
+    <h2>Nuevos Lanzamientos</h2>
+    <div class="products">
+
+      <div class="card" data-name="Elden Ring: Shadow of the Erdtree" data-desc="Explora el nuevo contenido de Elden Ring: Shadow of the Erdtree, una expansión épica." data-img="eldenring.jpg">
+        <img src="eldenring.jpg" alt="Elden Ring" />
+        <div class="card-title"><a href="#">Elden Ring: Shadow of the Erdtree</a></div>
+      </div>
+
+      <div class="card" data-name="Helldivers 2" data-desc="Prepárate para la acción cooperativa con Helldivers 2." data-img="helldivers2.jpg">
+        <img src="helldivers2.jpg" alt="Helldivers 2" />
+        <div class="card-title"><a href="#">Helldivers 2</a></div>
+      </div>
+
+      <div class="card" data-name="Star Wars Outlaws" data-desc="Embárcate en una aventura intergaláctica con Star Wars Outlaws." data-img="starwarsoutlaws.jpg">
+        <img src="starwarsoutlaws.jpg" alt="Star Wars Outlaws" />
+        <div class="card-title"><a href="#">Star Wars Outlaws</a></div>
+      </div>
+
+      <div class="card" data-name="Tekken 8" data-desc="La batalla definitiva de Tekken 8 está aquí." data-img="tekken8.jpg">
+        <img src="tekken8.jpg" alt="Tekken 8" />
+        <div class="card-title"><a href="#">Tekken 8</a></div>
+      </div>
+
+      <div class="card" data-name="Marvel's Spider-Man 2" data-desc="Siente la emoción con Marvel's Spider-Man 2 en esta nueva aventura." data-img="spiderman2.jpg">
+        <img src="spiderman2.jpg" alt="Spider-Man 2" />
+        <div class="card-title"><a href="#">Marvel's Spider-Man 2</a></div>
+      </div>
+
+      <div class="card" data-name="EA Sports FC 24" data-desc="El fútbol llega a tu pantalla con EA Sports FC 24." data-img="fifa24.jpg">
+        <img src="fifa24.jpg" alt="EA Sports FC 24" />
+        <div class="card-title"><a href="#">EA Sports FC 24</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="gameModal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <img src="" alt="Juego" id="modalImg" />
+      <h3 id="modalTitle">Título del Juego</h3>
+      <p id="modalDesc">Descripción del juego...</p>
+      <button id="buyBtn">Comprar</button>
+    </div>
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll('.card');
+    const modal = document.getElementById('gameModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const buyBtn = document.getElementById('buyBtn');
+    const closeModal = document.getElementById('closeModal');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const name = card.getAttribute('data-name');
+        const desc = card.getAttribute('data-desc');
+        const imgSrc = card.getAttribute('data-img');
+
+        modalImg.src = imgSrc;
+        modalImg.alt = name;
+        modalTitle.textContent = name;
+        modalDesc.textContent = desc;
+
+        buyBtn.onclick = () => {
+          window.location.href = 'forma de pago.html';
+        };
+
+        modal.style.display = 'flex';
+      });
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portada VALTRIX</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .content {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: #00ffff;
+      text-shadow: 0 0 20px #00ffff;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      color: #ccc;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    .button {
+      margin-top: 40px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      color: #000;
+      background-color: #00ffff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: transform 0.3s;
+      animation: fadeIn 4s ease-in-out;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+      background-color: #00cccc;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Video de fondo -->
+  <video class="video-background" autoplay muted loop>
+    <source src="video.mp4" type="video/mp4">
+    Tu navegador no soporta el video.
+  </video>
+
+  <!-- Contenido encima del video -->
+  <div class="content">
+    <h1>Bienvenido a VALTRIX</h1>
+    <p>Explora el poder de la tecnología con estilo.</p>
+    <a href="valtrix.html" class="button">Entrar</a>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Forma de Pago - AquaPlay</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #0e1635;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(90deg, #0077cc, #00c6ff);
+      color: #fff;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+    }
+    main {
+      background-color: #ffffff;
+      color: #000;
+      padding: 30px;
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left;
+    }
+    label {
+      font-weight: bold;
+    }
+    select, input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .back {
+      background-color: #ccc;
+      color: #333;
+    }
+    .continue {
+      background-color: #0077cc;
+      color: #fff;
+    }
+    .logo, .game-image {
+      width: 100%;
+      max-width: 300px;
+      margin: 10px auto;
+      border-radius: 8px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Forma de Pago</h1>
+</header>
+
+<main>
+  <img src="logo.jpg" alt="Logo AquaPlay" class="logo">
+
+  <img id="gameImage" src="" alt="Juego Seleccionado" class="game-image hidden">
+
+  <h3 id="precioJuego"></h3>
+
+  <form id="paymentForm">
+    <label for="product">Selecciona el producto:</label>
+    <select id="product" required>
+      <option value="">-- Elige un producto --</option>
+      <option value="Halo 2|499|halo.jpg">Halo 2 - $499 MXN</option>
+      <option value="FIFA 24|999|fifa24.jpg">FIFA 24 - $999 MXN</option>
+      <option value="God of War|799|god.jpg">God of War - $799 MXN</option>
+      <option value="Minecraft|399|minecra.jpg">Minecraft - $399 MXN</option>
+      <option value="Kirby|599|kirbi.jpg">Kirby - $599 MXN</option>
+    </select>
+
+    <label for="paymentMethod">Selecciona método de pago:</label>
+    <select id="paymentMethod" required>
+      <option value="">-- Elige una opción --</option>
+      <option value="OXXO">Pago en OXXO</option>
+      <option value="Tarjeta de débito">Tarjeta de débito</option>
+      <option value="Tarjeta de crédito">Tarjeta de crédito</option>
+    </select>
+
+    <div id="cardFields" class="hidden">
+      <label for="cardNumber">Número de tarjeta:</label>
+      <input type="text" id="cardNumber" placeholder="**** **** **** ****" maxlength="19">
+
+      <label for="cardHolder">Titular de la tarjeta:</label>
+      <input type="text" id="cardHolder" placeholder="Nombre completo">
+
+      <label for="expiry">Fecha de expiración:</label>
+      <input type="month" id="expiry">
+
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv" maxlength="4">
+    </div>
+
+    <div class="buttons">
+      <button type="button" class="back" onclick="location.href='index.html'">Regresar</button>
+      <button type="submit" class="continue">Finalizar compra</button>
+    </div>
+  </form>
+</main>
+
+<script>
+  const productSelect = document.getElementById('product');
+  const gameImage = document.getElementById('gameImage');
+  const precioJuego = document.getElementById('precioJuego');
+  const paymentMethod = document.getElementById('paymentMethod');
+  const cardFields = document.getElementById('cardFields');
+
+  productSelect.addEventListener('change', () => {
+    const [nombre, precio, imagen] = productSelect.value.split('|');
+    if (imagen) {
+      gameImage.src = imagen;
+      gameImage.classList.remove('hidden');
+      precioJuego.textContent = `Precio: $${precio} MXN`;
+    } else {
+      gameImage.classList.add('hidden');
+      precioJuego.textContent = '';
+    }
+  });
+
+  paymentMethod.addEventListener('change', () => {
+    const metodo = paymentMethod.value;
+    cardFields.classList.toggle('hidden', metodo === 'OXXO');
+  });
+
+  document.getElementById('paymentForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const [producto, precio, imagen] = productSelect.value.split('|');
+    const metodo = paymentMethod.value;
+
+    if (!producto || !metodo) {
+      alert('Por favor selecciona un producto y forma de pago.');
+      return;
+    }
+
+    // Redirigir a Recibo.html con datos por URL
+    const params = new URLSearchParams({
+      producto: producto,
+      precio: `$${precio} MXN`,
+      metodo: metodo
+    });
+    location.href = `Recibo.html?${params.toString()}`;
+  });
+</script>
+
+</body>
+</html>

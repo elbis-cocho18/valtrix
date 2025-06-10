@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ticket de Compra</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #fff0f5, #fdeff4);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #f06292;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .ticket {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #ffe4ec;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .ticket h2 {
+      text-align: center;
+      color: #c2185b;
+    }
+
+    .producto {
+      border-bottom: 1px solid #f8bbd0;
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #d63384;
+    }
+
+    .acciones {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .acciones a,
+    .acciones button {
+      background-color: #f06292;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .acciones a:hover,
+    .acciones button:hover {
+      background-color: #e91e63;
+    }
+  </style>
+</head>
+<body>
+  <header>🧾 Ticket de Compra</header>
+
+  <div class="ticket" id="ticket">
+    <h2>Resumen de tu compra</h2>
+    <!-- Productos insertados por JS -->
+  </div>
+
+  <div class="acciones">
+    <button onclick="window.print()">🖨️ Imprimir Ticket</button>
+    <a href="div.html">← Volver al inicio</a>
+  </div>
+
+  <script>
+    const ticketDiv = document.getElementById("ticket");
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    if (carrito.length === 0) {
+      ticketDiv.innerHTML += "<p>No hay productos en el carrito.</p>";
+    } else {
+      let total = 0;
+      carrito.forEach(producto => {
+        const div = document.createElement("div");
+        div.className = "producto";
+        div.innerHTML = `<span>${producto.nombre}</span><span>$${producto.precio}</span>`;
+        ticketDiv.appendChild(div);
+        total += producto.precio;
+      });
+
+      const totalDiv = document.createElement("div");
+      totalDiv.className = "total";
+      totalDiv.textContent = `Total: $${total}`;
+      ticketDiv.appendChild(totalDiv);
+    }
+  </script>
+</body>
+</html>

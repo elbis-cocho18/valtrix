@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo Perfumes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* (Se mantiene igual todo el estilo visual) */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fff0f5, #f8bbd0);
+      color: #333;
+    }
+
+    header {
+      background-color: #ec407a;
+      color: white;
+      text-align: center;
+      padding: 24px 16px;
+      font-size: 32px;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .producto {
+      background-color: #fff0f8;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      padding-bottom: 15px;
+    }
+
+    .producto:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .producto img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .producto h3 {
+      color: #c2185b;
+      font-size: 20px;
+      margin: 12px 0 4px;
+    }
+
+    .producto p {
+      font-size: 14px;
+      color: #555;
+      margin: 4px 12px;
+    }
+
+    .precio {
+      color: #ad1457;
+      font-weight: bold;
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .producto button {
+      background-color: #ec407a;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .producto button:hover {
+      background-color: #d81b60;
+    }
+
+    .volver {
+      text-align: center;
+      margin: 30px 0 50px;
+    }
+
+    .volver a {
+      background-color: #ec407a;
+      color: white;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .volver a:hover {
+      background-color: #d81b60;
+    }
+  </style>
+</head>
+<body>
+  <header>Catálogo - Perfumes</header>
+
+  <div class="productos">
+    <div class="producto">
+      <img src="p1.jpeg" alt="Perfume floral">
+      <h3>Perfume Floral</h3>
+      <p>Aroma suave con notas de jazmín y rosas, ideal para trasmitir dulzura y frescura.</p>
+      <p class="precio">$320</p>
+      <button onclick="agregarAlCarrito('Perfume Floral', 320)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="p2.jpeg" alt="Perfume cítrico">
+      <h3>Perfume Cítrico</h3>
+      <p>Frescura de limón, mandarina y bergamota que revitaliza tus sentidos con cada aplicacion.</p>
+      <p class="precio">$280</p>
+      <button onclick="agregarAlCarrito('Perfume Cítrico', 280)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="p3.jpeg" alt="Perfume amaderado">
+      <h3>Perfume Amaderado</h3>
+      <p>Notas de sándalo y cedro con un toque de ámbar que evoca sofisticacion  profundidad.</p>
+      <p class="precio">$350</p>
+      <button onclick="agregarAlCarrito('Perfume Amaderado', 350)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="p4.jpeg" alt="Perfume frutal">
+      <h3>Perfume Frutal</h3>
+      <p>Mezcla de frutas rojas y vainilla, perfecta para un estilo juvenil y vibrante.</p>
+      <p class="precio">$290</p>
+      <button onclick="agregarAlCarrito('Perfume Frutal', 290)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="p5.jpeg" alt="Perfume clásico">
+      <h3>Perfume Clásico</h3>
+      <p>Estilo elegante y atemporal para toda ocasión. Estilo y elegancia en cada gota.</p>
+      <p class="precio">$400</p>
+      <button onclick="agregarAlCarrito('Perfume Clásico', 400)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="p6.jpeg" alt="Perfume unisex">
+      <h3>Perfume Unisex</h3>
+      <p>Equilibrio perfecto entre frescura y caracter con una armonia perfecta de notas versatiles.</p>
+      <p class="precio">$310</p>
+      <button onclick="agregarAlCarrito('Perfume Unisex', 310)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="p7.jpeg" alt="Perfume oriental">
+      <h3>Perfume Oriental</h3>
+      <p>Especias cálidas con toques de incienso y vainilla. Un viaje aromatico a tierra exotica.</p>
+      <p class="precio">$370</p>
+      <button onclick="agregarAlCarrito('Perfume Oriental', 370)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="p8.jpeg" alt="Perfume fresco">
+      <h3>Perfume Fresco</h3>
+      <p>Ideal para el día a día con esencia de menta y lavanda para un aroma limpio y energizante.</p>
+      <p class="precio">$260</p>
+      <button onclick="agregarAlCarrito('Perfume Fresco', 260)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="p9.jpeg" alt="Perfume nocturno">
+      <h3>Perfume Nocturno</h3>
+      <p>Fragancia intensa ideal para ocasiones especiales donde quieres dajar huella.</p>
+      <p class="precio">$420</p>
+      <button onclick="agregarAlCarrito('Perfume Nocturno', 420)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="p10.jpeg" alt="Mini perfume de bolsillo">
+      <h3>Mini Perfume</h3>
+      <p>Version compacta para llevar contigo. Ideal para retoques rapidos sin perder el estilo</p>
+      <p class="precio">$120</p>
+      <button onclick="agregarAlCarrito('Mini Perfume', 120)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="p11.jpeg" alt="Perfume con feromonas">
+      <h3>Perfume con Feromonas</h3>
+      <p>Aroma cautivador con feromonas, diseño para atraer y resaltar tu personalidad.</p>
+      <p class="precio">$390</p>
+      <button onclick="agregarAlCarrito('Perfume con Feromonas', 390)">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="p12.jpeg" alt="Perfume floral intenso">
+      <h3>Perfume Floral Intenso</h3>
+      <p>Flores exóticas con fondo de almizcle, ideal para quienes aman las fragancias intensas y duraderas.</p>
+      <p class="precio">$340</p>
+      <button onclick="agregarAlCarrito('Perfume Floral Intenso', 340)">Agregar al carrito</button>
+    </div>
+  </div>
+
+  <div class="volver">
+    <a href="div.html">← Volver al inicio</a> |
+    <a href="carrito.html">🛒 Ver carrito</a>
+  </div>
+
+  <script>
+    function agregarAlCarrito(nombre, precio) {
+      const producto = { nombre, precio };
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.push(producto);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      alert(`${nombre} se ha agregado al carrito.`);
+    }
+  </script>
+</body>
+</html>

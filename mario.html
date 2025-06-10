@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalle del Juego</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0f7fa;
+      padding: 30px;
+    }
+    img {
+      max-width: 400px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: #006064;
+    }
+    p {
+      font-size: 16px;
+      color: #004d40;
+    }
+    .btn {
+      padding: 10px 20px;
+      background-color: #00acc1;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #00838f;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="tituloJuego">Mario Kart</h1>
+  <img id="imagenJuego" src="kart.WEBP" alt="Juego">
+  <p id="descripcionJuego">Mario Kart, un juego de carreras con los personajes cómicos de la saga de Mario. Un juego donde te puedes divertir jugando con amigos y pasar horas de diversión.</p>
+
+  <button class="btn" onclick="comprar()">Comprar</button>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const nombre = params.get("nombre") || "Mario Kart";
+    const img = params.get("img") || "kart.WEBP";
+    const desc = params.get("desc") || "Mario Kart, un juego de carreras con los personajes cómicos de la saga de Mario...";
+
+    document.getElementById("tituloJuego").textContent = nombre;
+    document.getElementById("imagenJuego").src = img;
+    document.getElementById("descripcionJuego").textContent = desc;
+
+    function comprar() {
+      const url = `forma de pago.HTML?nombre=${encodeURIComponent(nombre)}&img=${encodeURIComponent(img)}&desc=${encodeURIComponent(desc)}`;
+      window.location.href = url;
+    }
+  </script>
+
+</body>
+</html>
