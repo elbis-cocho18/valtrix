@@ -37,7 +37,7 @@
 <body>
 
   <h1 id="tituloJuego">Mario Kart</h1>
-  <img id="imagenJuego" src="kart.WEBP" alt="Juego">
+  <img id="imagenJuego" src="kart.jpg" alt="Juego">
   <p id="descripcionJuego">Mario Kart, un juego de carreras con los personajes cómicos de la saga de Mario. Un juego donde te puedes divertir jugando con amigos y pasar horas de diversión.</p>
 
   <button class="btn" onclick="comprar()">Comprar</button>
@@ -45,7 +45,7 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     const nombre = params.get("nombre") || "Mario Kart";
-    const img = params.get("img") || "kart.WEBP";
+    const img = params.get("img") || "kart.jpg";
     const desc = params.get("desc") || "Mario Kart, un juego de carreras con los personajes cómicos de la saga de Mario...";
 
     document.getElementById("tituloJuego").textContent = nombre;
